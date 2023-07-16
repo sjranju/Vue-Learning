@@ -1,0 +1,38 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Learning</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+
+<body>
+    <h1>Heloo Vue!!</h1>
+    <div id="app">
+        <div class="" v-if="showDetails">
+            <p>Name:{{name}}, Email:{{email}}, Age:{{age}}</p>
+
+            <button v-on:click="age++">
+                Increament Age
+            </button>
+
+            <button v-on:click="age--">
+                Decreament Age
+            </button>
+            <br>
+            <br>
+        </div>
+
+
+        <button v-if="showDetails" @click="hideDetails"><span>Hide Details</span></button>
+        <button v-else @click="hideDetails"><span>Show Details</span></button>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
