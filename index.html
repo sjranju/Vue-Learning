@@ -6,28 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue Learning</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        body {
+            background-color: beige;
+
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        li {
+            padding: 14px;
+            margin: 6px;
+            border-radius: 12px;
+            background-color: slategray;
+            font-size: large;
+            font-weight: 800;
+            color: white;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        button {
+            background-color: brown;
+            border: none;
+            border-radius: 6px;
+            padding: 8px;
+            color: white;
+            font-weight: 700;
+        }
+
+        li.fav {
+            background-color: brown;
+        }
+
+        li.fav:hover {
+            background-color: indianred;
+        }
+
+        .gitLink {
+            margin-left: 6px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Heloo Vue!!</h1>
     <div id="app">
-        <div class="" v-if="showDetails">
-            <p>Name:{{name}}, Email:{{email}}, Age:{{age}}</p>
+        <div class="">
+            <h1>Heloo Vue Community,<a :href="url" class="gitLink">here's my first project!!</a></h1>
+        </div>
 
-            <button v-on:click="age++">
+        <div class="" v-if="showDetails">
+            <ul>
+                <li v-for="student in students" v-bind:class="{fav:student.fav}" @click="handleToggleStudent(student)">
+                    Name:{{student.name}}, Email:{{student.email}}, Age:{{student.age}}
+
+                </li>
+            </ul>
+            <!-- <button v-on:click="age++">
                 Increament Age
             </button>
 
             <button v-on:click="age--">
                 Decreament Age
-            </button>
+            </button> -->
             <br>
             <br>
         </div>
 
-
-        <button v-if="showDetails" @click="hideDetails"><span>Hide Details</span></button>
-        <button v-else @click="hideDetails"><span>Show Details</span></button>
+        <div class="">
+            <button v-if="showDetails" @click="hideDetails"><span>Hide Details</span></button>
+            <button v-else @click="hideDetails"><span>Show Details</span></button>
+        </div>
 
     </div>
 
